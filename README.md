@@ -2,9 +2,9 @@
 > [!IMPORTANTE] Estas son las tareas a completar, realizar en orden, si completas marca con [x]. PD: puede que se agregan más tareas
 
 ## Bienvenida y creación
-- [ ] Dar bienvenida y explicar instrucciones
+- [x] Dar bienvenida y explicar instrucciones
 - [ ] Crear logica 2 jugadores, cambios de turnos
-- [ ] Declarar variables y definir clases
+- [x] Declarar objetos y definir clases
 - [ ] Crear 2 tableros 9x9 para cada jugador (tablero1: ubicar flota, tablero2: atacar)
 
 ## Ubicar flota
