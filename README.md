@@ -3,9 +3,9 @@
 
 ## Bienvenida y creación
 - [x] Dar bienvenida y explicar instrucciones
-- [ ] Crear logica 2 jugadores, cambios de turnos
+- [x] Crear logica 2 jugadores, cambios de turnos
 - [x] Declarar objetos y definir clases
-- [ ] Crear 2 tableros 9x9 para cada jugador (tablero1: ubicar flota, tablero2: atacar)
+- [x] Crear 2 tableros 9x9 para cada jugador (tablero1: ubicar flota, tablero2: atacar)
 
 ## Ubicar flota
 > [!IMPORTANTE] las coordenadas se indican asi: A,5 B,7 D,4 (letras filas, num columnas)
@@ -14,9 +14,9 @@
 - [ ] Validacion: No puede ubicarse un barco sobre otro
 
 ## Juego por Turnos
+- [x] Permitirle a cada jugador colocar su nombre para identificar que jugador está en cada turno
 - [ ] Limpiar pantallas para evitar que los oponentes visualicen los tableros adversarios
 - [ ] Finalizar cuando un jugador hunda la flota enemiga
-- [ ] Permitirle a cada jugador colocar su nombre para identificar que jugador está en cada turno
 - [ ] Metodo que cambie turnos
 
 ## Ataque
