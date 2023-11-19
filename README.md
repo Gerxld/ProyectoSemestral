@@ -9,8 +9,9 @@
 
 ## Ubicar flota
 > [!IMPORTANTE] las coordenadas se indican asi: A,5 B,7 D,4 (letras filas, num columnas)
-- [ ] Permitir a los jugadores ubicar su flota: 4 barcos (2 tamaño 2, 1 tamaño 3, 1 tamaño 4)
-- [ ] Indica el tamaño de la nave , orientación (vertical u horizontal) y coordenadas para ubicarla. Debe cuidar que no se pueda colocar una nave fuera del tablero. 
+- [x] Permitir a los jugadores ubicar su flota: 4 barcos (2 tamaño 2 (lancha), 1 tamaño 3 (buque), 1 tamaño 4 (portaaviones))
+- [ ] Indica el tamaño de la nave , orientación (vertical u horizontal) y coordenadas para ubicarla. 
+- [ ] Debe cuidar que no se pueda colocar una nave fuera del tablero. 
 - [ ] Validacion: No puede ubicarse un barco sobre otro
 
 ## Juego por Turnos
