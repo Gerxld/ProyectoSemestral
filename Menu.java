@@ -6,8 +6,7 @@ public class Menu {
     public static void main(String[] args) throws IOException {
         try {
             // Tenemos 3 clases aparte del main: Jugador, LeerImprimir y Calculo
-            // En este archivo solo se llaman a los metodos a partir de los objetos jugador,
-            // sistema o cal
+            // En este archivo solo se llaman a los metodos a partir de los objetos jugador, sistema o cal
             // Declaracion de variables
             char[][] tablero;
             String nombre, shipName = "", coordenada, orientacion;

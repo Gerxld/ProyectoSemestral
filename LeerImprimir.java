@@ -73,7 +73,7 @@ public class LeerImprimir {
         String coordenada;
         boolean esValido;
         System.out.println("Donde desea colocar su " + shipName + "?");
-        System.out.println("Ingrese las coordenadas de esta manera: E,2");
+        System.out.println("Ingrese las coordenadas de esta manera: D,1");
         coordenada = reader.readLine();
         coordenada.substring(0, 2);
         esValido = cal.verificarCoordenadas(coordenada);

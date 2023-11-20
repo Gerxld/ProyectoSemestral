@@ -1,3 +1,4 @@
+import java.io.*;
 
 public class Calculo {
     public char[][] crearTablero() {
@@ -85,4 +86,11 @@ public class Calculo {
         return x;
     }
 
+    public void limpiarPantalla() throws IOException, InterruptedException {
+        new ProcessBuilder("cmd", "/c", "cls")
+        .inheritIO()
+        .start()
+        .waitFor();
+    }
+    
 }
