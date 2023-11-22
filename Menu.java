@@ -23,7 +23,7 @@ public class Menu {
             nombre = sistema.ingresarNombre(1);
             Jugador p1 = new Jugador(nombre, tablero, tablero); // datos del jugador (num player, nombre, tableros)
 
-            do { // ubicar la flota de un jugador
+            do { // ubicar la flota del jugador 1
 
                 opcionEliminada = sistema.imprimirUbicarFlota(opcionesDisponibles);
                 ship = cal.obtenerBarco(opcionEliminada);
@@ -47,8 +47,10 @@ public class Menu {
 
                 p1.ubicarBarco(p1.tabFlota, ship, orientacion, x, y, tamaño);
                 sistema.imprimirTablero(p1.tabFlota);
+                if (opcionesDisponibles.size() == 0)
+                    flotaLlena = true;
 
-            } while (!flotaLlena); // loop infinito arreglar
+            } while (!flotaLlena);
 
             // Fin try
         } catch (Exception e) {
