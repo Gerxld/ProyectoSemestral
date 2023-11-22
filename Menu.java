@@ -1,53 +1,54 @@
 // Integrantes: Simon Espino, Gerald Ríos, Javier Reyes y Jirak Anria
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Menu {
     public static void main(String[] args) throws IOException {
         try {
-            // Tenemos 3 clases aparte del main: Jugador, LeerImprimir y Calculo
-            // En este archivo solo se llaman a los metodos a partir de los objetos jugador, sistema o cal
-            // Declaracion de variables
-            char[][] tablero;
-            String nombre, shipName = "", coordenada, orientacion;
-            char ship = '0';
-            int x, y, tamaño = 0;
-            boolean flotaLlena = false;
-            // Objetos generales
             LeerImprimir sistema = new LeerImprimir();
             Calculo cal = new Calculo();
+
+            // Declaracion de variables
+            char[][] tablero;
+            String nombre, opcionEliminada, coordenada, orientacion;
+            char ship = '0';
+            int x, y, tamaño = 0;
+            boolean flotaLlena = false, esValido = true, espacioDisponible;
+            ArrayList<String> opcionesDisponibles = cal.crearListaOpciones();
 
             // Proceso
             sistema.darBienvenida();
             tablero = cal.crearTablero();
             nombre = sistema.ingresarNombre(1);
             Jugador p1 = new Jugador(nombre, tablero, tablero); // datos del jugador (num player, nombre, tableros)
+
             do { // ubicar la flota de un jugador
-                ship = sistema.imprimirUbicarFlota(); 
-                switch (ship) {
-                    case '2':
-                        tamaño = 2;
-                        shipName = "Lancha";
-                        break;
-                    case '3':
-                        tamaño = 3;
-                        shipName = "Buque";
-                        break;
-                    case '4':
-                        tamaño = 4;
-                        shipName = "Portaaviones";
-                        break;
-                    default:
-                        System.out.println("Error en switch ship");
-                        break;
-                }
-                // ARREGLAR LOGICA DE ORIENTACION Y UBICACION (No solo se acepta una coordenada)
+
+                opcionEliminada = sistema.imprimirUbicarFlota(opcionesDisponibles);
+                ship = cal.obtenerBarco(opcionEliminada);
+                tamaño = cal.obtenerTamaño(ship);
                 orientacion = sistema.obtenerOrientacion();
-                coordenada = sistema.obtenerCoordenadasBarco(shipName, ship, tamaño);
-                x = cal.obtenerX(coordenada);
-                y = cal.obtenerY(coordenada);
-                p1.ubicarBarco(ship, orientacion, x, y);
-            } while (!flotaLlena);
+
+                do {
+                    do {
+                        coordenada = sistema.obtenerCoordenadasBarco();
+                        esValido = cal.verificarEntradaCoordenadas(coordenada, tamaño, orientacion);
+                        if (!esValido) {
+                            sistema.imprimirError();
+                        }
+                    } while (!esValido);
+
+                    x = cal.obtenerX(coordenada);
+                    y = cal.obtenerY(coordenada);
+                    espacioDisponible = cal.verificarDisponibilidad(p1.tabFlota, x, y, tamaño, orientacion);
+
+                } while (!espacioDisponible);
+
+                p1.ubicarBarco(p1.tabFlota, ship, orientacion, x, y, tamaño);
+                sistema.imprimirTablero(p1.tabFlota);
+
+            } while (!flotaLlena); // loop infinito arreglar
 
             // Fin try
         } catch (Exception e) {

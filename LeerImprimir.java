@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.ArrayList;
 
 public class LeerImprimir {
     public void darBienvenida() {
@@ -14,40 +15,56 @@ public class LeerImprimir {
         return nombre;
     }
 
-    public void imprimirError() {
-        System.out.println("Intentelo de nuevo!, las coordenadas se deben ingresar de esta manera: E,2");
+    public void imprimirTablero(char[][] tablero) {
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero.length; j++) {
+                System.out.print(tablero[i][j] + " | ");
+            }
+            System.out.println();
+        }
     }
 
-    public char imprimirUbicarFlota() throws IOException {
+    public void imprimirError() {
+        System.out.println("Por favor, ingrese una posición valida!");
+    }
+
+    public String imprimirUbicarFlota(ArrayList<String> opcionesDisponibles) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String opcion;
-        char ship;
-        // boolean flotaLlena = false;
-        System.out.println("Ubica tu flota\n¿Que deseas ubicar?");
+        int tamaño;
+        String opcionEliminada = "";
+        boolean encontrado;
+
+        System.out.println("Ubica tu flota\nIngresa el tamaño del barco que deseas ubicar: ");
         do {
-            System.out.println("1. Lancha1 (tamaño 2)\n2. Lancha2 (tamaño 2)\n3. Buque (tamaño 3)\n4. Portaaviones (tamaño 4)");
-            opcion = reader.readLine();
-            switch (opcion) {
-                case "1":
-                case "2":
-                    ship = '2';
-                    break;
-
-                case "3":
-                    ship = '3';
-                    break;
-
-                case "4":
-                    ship = '4';
-                    break;
-
-                default:
-                    ship = '0';
-                    System.out.println("La opción elegida no se encuentra");
-                    break;
+            for (int i = 0; i < opcionesDisponibles.size(); i++) { // mostramos las opciones
+                System.out.println(opcionesDisponibles.get(i));
             }
-        } while (ship == '0');
-        return ship;
+
+            try {
+                tamaño = Integer.parseInt(reader.readLine());
+                if (tamaño >= 2 && tamaño <= 4) {
+                    encontrado = false;
+                    for (String barco : opcionesDisponibles) {
+                        if (barco.contains("tamaño " + tamaño)) {
+                            opcionEliminada = barco;
+                            opcionesDisponibles.remove(opcionEliminada);
+                            encontrado = true;
+                            break;
+                        }
+                    }
+
+                    if (!encontrado) {
+                        System.out.println("La opción elegida ya no se encuentra disponible");
+                    }
+                } else {
+                    System.out.println("Por favor, ingrese un tamaño válido");
+                }
+            } catch (Exception e) {
+                System.out.println("Por favor, ingrese un tamaño válido");
+            }
+
+        } while (opcionEliminada.equals(""));
+        return opcionEliminada;
     }
 
     public String obtenerOrientacion() throws IOException {
@@ -67,20 +84,13 @@ public class LeerImprimir {
         return orientacion;
     }
 
-    public String obtenerCoordenadasBarco(String shipName, char ship, int tamaño) throws IOException {
+    public String obtenerCoordenadasBarco() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        Calculo cal = new Calculo();
         String coordenada;
-        boolean esValido;
-        System.out.println("Donde desea colocar su " + shipName + "?");
+        System.out.println("Donde desea colocar su barco?");
         System.out.println("Ingrese las coordenadas de esta manera: D,1");
         coordenada = reader.readLine();
-        coordenada.substring(0, 2);
-        esValido = cal.verificarCoordenadas(coordenada);
-        while (esValido = false) {
-            imprimirError();
-            coordenada = reader.readLine();
-        }
         return coordenada;
     }
+
 }
