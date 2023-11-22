@@ -178,9 +178,9 @@ public class Calculo {
         limY = y;
 
         if (orientacion.equals("vertical")) {
-            limX += tamaño;
+            limX += tamaño - 1;
         } else {
-            limY += tamaño;
+            limY += tamaño - 1;
         }
 
         for (int i = x; i <= limX; i++) { // verifica que no choque con otro barco

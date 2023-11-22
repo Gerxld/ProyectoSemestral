@@ -1,56 +1,32 @@
 // Integrantes: Simon Espino, Gerald Ríos, Javier Reyes y Jirak Anria
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class Menu {
     public static void main(String[] args) throws IOException {
         try {
             LeerImprimir sistema = new LeerImprimir();
             Calculo cal = new Calculo();
-
             // Declaracion de variables
-            char[][] tablero;
-            String nombre, opcionEliminada, coordenada, orientacion;
-            char ship = '0';
-            int x, y, tamaño = 0;
-            boolean flotaLlena = false, esValido = true, espacioDisponible;
-            ArrayList<String> opcionesDisponibles = cal.crearListaOpciones();
+            char[][] tabFlotaP1, tabFlotaP2, tabAtaqueP1, tabAtaqueP2;
+            String nombreP1, nombreP2;
 
             // Proceso
             sistema.darBienvenida();
-            tablero = cal.crearTablero();
-            nombre = sistema.ingresarNombre(1);
-            Jugador p1 = new Jugador(nombre, tablero, tablero); // datos del jugador (num player, nombre, tableros)
+            
+            nombreP1 = sistema.ingresarNombre(1);
+            tabFlotaP1 = cal.crearTablero();
+            tabAtaqueP1 = cal.crearTablero();
+            Jugador p1 = new Jugador(nombreP1, tabFlotaP1, tabAtaqueP1); // datos del jugador (num player, nombre, tableros)
+            p1.ubicarFlota();
 
-            do { // ubicar la flota del jugador 1
+            cal.limpiarPantalla();
 
-                opcionEliminada = sistema.imprimirUbicarFlota(opcionesDisponibles);
-                ship = cal.obtenerBarco(opcionEliminada);
-                tamaño = cal.obtenerTamaño(ship);
-                orientacion = sistema.obtenerOrientacion();
-
-                do {
-                    do {
-                        coordenada = sistema.obtenerCoordenadasBarco();
-                        esValido = cal.verificarEntradaCoordenadas(coordenada, tamaño, orientacion);
-                        if (!esValido) {
-                            sistema.imprimirError();
-                        }
-                    } while (!esValido);
-
-                    x = cal.obtenerX(coordenada);
-                    y = cal.obtenerY(coordenada);
-                    espacioDisponible = cal.verificarDisponibilidad(p1.tabFlota, x, y, tamaño, orientacion);
-
-                } while (!espacioDisponible);
-
-                p1.ubicarBarco(p1.tabFlota, ship, orientacion, x, y, tamaño);
-                sistema.imprimirTablero(p1.tabFlota);
-                if (opcionesDisponibles.size() == 0)
-                    flotaLlena = true;
-
-            } while (!flotaLlena);
+            nombreP2 = sistema.ingresarNombre(2);
+            tabFlotaP2 = cal.crearTablero();
+            tabAtaqueP2 = cal.crearTablero();
+            Jugador p2 = new Jugador(nombreP2, tabFlotaP2, tabAtaqueP2); 
+            p2.ubicarFlota();
 
             // Fin try
         } catch (Exception e) {

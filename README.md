@@ -16,7 +16,8 @@
 
 ## Juego por Turnos
 - [x] Permitirle a cada jugador colocar su nombre para identificar que jugador está en cada turno
-- [ ] Limpiar pantallas para evitar que los oponentes visualicen los tableros adversarios
+- [ ] Cuidar que no los jugadores no ingresen el mismo nombre
+- [x] Limpiar pantallas para evitar que los oponentes visualicen los tableros adversarios
 - [ ] Finalizar cuando un jugador hunda la flota enemiga
 - [ ] Metodo que cambie turnos
 
