@@ -198,33 +198,3 @@ public class Calculo {
 
 }
 
-//Método "exit". 
-public class Juego {
-
-    public void (String[] args) {
-        correrJuego();
-    }
-
-    public void correrJuego() {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-        while (true) {
-            try {
-                String respuesta = reader.readLine();
-
-                if (respuesta.equalsIgnoreCase("Exit")) {
-                    System.out.println("El jugador se ha rendido. ¡Fin del juego!");
-                    break;
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        try {
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
