@@ -15,8 +15,8 @@
 - [x] Validacion: No puede ubicarse un barco sobre otro
 
 ## Juego por Turnos
-- [x] Permitirle a cada jugador colocar su nombre para identificar que jugador está en cada turno
-- [ ] Cuidar que no los jugadores no ingresen el mismo nombre
+- [x] Permitirle a cada jugador colocar su nombre
+- [ ] identificar que jugador está en cada turno
 - [x] Limpiar pantallas para evitar que los oponentes visualicen los tableros adversarios
 - [ ] Finalizar cuando un jugador hunda la flota enemiga
 - [ ] Metodo que cambie turnos

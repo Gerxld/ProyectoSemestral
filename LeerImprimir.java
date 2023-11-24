@@ -7,11 +7,15 @@ public class LeerImprimir {
         System.out.println("Ubica tu flota, descubre las coordenadas de tu oponente y hunde sus barcos para ganar!");
     }
 
-    public String ingresarNombre(int p) throws IOException {
+    public String ingresarNombre(int p, String nom) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String nombre;
+        
+        do {
         System.out.println("Ingrese su nombre jugador " + p);
         nombre = reader.readLine();
+        } while (nombre.equals(nom) || nombre.length() == 0);
+
         return nombre;
     }
 
