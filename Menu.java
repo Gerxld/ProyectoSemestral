@@ -1,7 +1,6 @@
 
 // Integrantes: Simon Espino, Gerald Ríos, Javier Reyes y Jirak Anria
 import java.io.*;
-// import java.lang.InterruptedException;
 
 public class Menu {
     public static void main(String[] args) throws IOException {
@@ -17,6 +16,7 @@ public class Menu {
             sistema.darBienvenida();
 
             // Ubicación de flotas
+            // Jugador 1
             nombreP1 = sistema.ingresarNombre(1, "");
             tabFlotaP1 = cal.crearTablero();
             tabAtaqueP1 = cal.crearTablero();
@@ -24,6 +24,7 @@ public class Menu {
             p1.ubicarFlota();
             cal.limpiarPantalla();
 
+            // Jugador 2
             nombreP2 = sistema.ingresarNombre(2, nombreP1);
             tabFlotaP2 = cal.crearTablero();
             tabAtaqueP2 = cal.crearTablero();
@@ -55,11 +56,11 @@ public class Menu {
                 cal.limpiarPantalla();
             } while (!hayGanador);
 
-            sistema.imprimirGanador(ganador);
+            sistema.imprimirGanador(ganador, p1, p2);
 
             // Fin try
         } catch (Exception e) {
-            System.out.println("Ha ocurrido un error en Menu");
+            System.out.println("Ingrese los Valores correctamente!");
         }
     }
 }

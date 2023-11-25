@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Calculo {
 
     public void limpiarPantalla() throws IOException, InterruptedException {
-        Thread.sleep(1500); // Esperar 1.5 segundos antes de limpiar pantalla
+        Thread.sleep(1000); // Esperar 1 segundo antes de limpiar pantalla
 
         new ProcessBuilder("cmd", "/c", "cls")
                 .inheritIO()
@@ -31,6 +31,28 @@ public class Calculo {
         opcionesDisponibles.add("- Buque (tamaño 3)");
         opcionesDisponibles.add("- Portaaviones (tamaño 4)");
         return opcionesDisponibles;
+    }
+
+    public int cambiarNaveActual(int nave) {
+        switch (nave) {
+            case 0:
+                nave = 1;
+                break;
+
+            case 1:
+                nave = 2;
+                break;
+
+            case 2:
+                nave = 3;
+                break;
+
+            case 3:
+                nave = 4;
+                break;
+        }
+
+        return nave;
     }
 
     public char obtenerBarco(String opcionEliminada) {
@@ -237,7 +259,6 @@ public class Calculo {
 
             }
         }
-
         return true;
     }
 

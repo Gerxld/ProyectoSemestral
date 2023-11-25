@@ -27,7 +27,7 @@ public class LeerImprimir {
             System.out.println();
         }
     }
-
+    
     public void imprimirError() {
         System.out.println("Por favor, ingrese una posición valida!");
     }
@@ -108,12 +108,24 @@ public class LeerImprimir {
         System.out.println("Al ataque!");
     }
 
-    public void imprimirGanador(String ganador) {
+    public void imprimirGanador(String ganador, Jugador p1, Jugador p2) {
         System.out.println("Felicidades " + ganador + ", has ganado!");
         System.out.println("Estás son las coordenadas de sus naves: ");
-        // System.out.print("Jugador 1\t Nave de ");
-        // System.out.print("Jugador 2\t Nave de " + tamaño + " " + coordenada + " " +
-        // orientacion);
-    }
+        System.out.print("Jugador 1\t");
+        for (int i = 0; i < 4; i++) {
+            if (i >= 1)
+                System.out.print("\t\t");
+            System.out.print("Nave de " + p1.tamañoList.get(i) + " " + p1.xList.get(i) + p1.yList.get(i) + " "
+                    + p1.orientacionList.get(i) + "\n");
+        }
+        System.out.println();
 
+        System.out.print("Jugador 2\t");
+        for (int i = 0; i < 4; i++) {
+            if (i >= 1)
+                System.out.print("\t\t");
+            System.out.print("Nave de " + p2.tamañoList.get(i) + " " + p2.xList.get(i) + p2.yList.get(i) + " "
+                    + p2.orientacionList.get(i) + "\n");
+        }
+    }
 }

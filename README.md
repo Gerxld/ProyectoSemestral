@@ -28,7 +28,7 @@
 
 > [!IMPRIMIR]
 - [x] Nombre del jugador ganador
-- [ ] Coordenadas de las naves de cada jugador
+- [x] Coordenadas de las naves de cada jugador
 ejemplo:
 Jugador 1   Nave de 4 A1 horizontal
             Nave de 3 G2 vertical
