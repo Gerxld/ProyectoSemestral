@@ -10,10 +10,10 @@ public class LeerImprimir {
     public String ingresarNombre(int p, String nom) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String nombre;
-        
+
         do {
-        System.out.println("Ingrese su nombre jugador " + p);
-        nombre = reader.readLine();
+            System.out.println("Ingrese su nombre jugador " + p);
+            nombre = reader.readLine();
         } while (nombre.equals(nom) || nombre.length() == 0);
 
         return nombre;
@@ -30,6 +30,10 @@ public class LeerImprimir {
 
     public void imprimirError() {
         System.out.println("Por favor, ingrese una posición valida!");
+    }
+
+    public void imprimirTurno(String nombre) {
+        System.out.println("Turno de " + nombre);
     }
 
     public String imprimirUbicarFlota(ArrayList<String> opcionesDisponibles) throws IOException {
@@ -88,13 +92,28 @@ public class LeerImprimir {
         return orientacion;
     }
 
-    public String obtenerCoordenadasBarco() throws IOException {
+    public String obtenerCoordenadas() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String coordenada;
-        System.out.println("Donde desea colocar su barco?");
         System.out.println("Ingrese las coordenadas de esta manera: D,1");
         coordenada = reader.readLine();
         return coordenada;
+    }
+
+    public void imprimirRetirada(String nombre) {
+        System.out.println(nombre + " Se ha retirado de la partida :(");
+    }
+
+    public void imprimirAtacar() {
+        System.out.println("Al ataque!");
+    }
+
+    public void imprimirGanador(String ganador) {
+        System.out.println("Felicidades " + ganador + ", has ganado!");
+        System.out.println("Estás son las coordenadas de sus naves: ");
+        // System.out.print("Jugador 1\t Nave de ");
+        // System.out.print("Jugador 2\t Nave de " + tamaño + " " + coordenada + " " +
+        // orientacion);
     }
 
 }

@@ -3,7 +3,7 @@
 
 ## Bienvenida y creación
 - [x] Dar bienvenida y explicar instrucciones
-- [ ] Crear logica 2 jugadores, cambios de turnos
+- [x] Crear logica 2 jugadores, cambios de turnos
 - [x] Declarar objetos y definir clases
 - [x] Crear 2 tableros 9x9 para cada jugador (tablero1: ubicar flota, tablero2: atacar)
 
@@ -16,19 +16,18 @@
 
 ## Juego por Turnos
 - [x] Permitirle a cada jugador colocar su nombre
-- [ ] identificar que jugador está en cada turno
+- [x] identificar que jugador está en cada turno
 - [x] Limpiar pantallas para evitar que los oponentes visualicen los tableros adversarios
-- [ ] Finalizar cuando un jugador hunda la flota enemiga
-- [ ] Metodo que cambie turnos
+- [x] Finalizar cuando un jugador hunda la flota enemiga
 
 ## Ataque
-- [ ] Cada vez que un jugador indique una coordenada, el programa debe indicarle si atinó o no a una de las naves del oponente
+- [x] Cada vez que un jugador indique una coordenada, el programa debe indicarle si atinó o no a una de las naves del oponente
 
 ## Game Over
-- [ ] Si el jugador de turno ingresa 'EXIT', la partida termina y se considera que ese jugador se ha rendido, haciendo al otro jugador el ganador de la partida
+- [x] Si el jugador de turno ingresa 'EXIT', la partida termina y se considera que ese jugador se ha rendido, haciendo al otro jugador el ganador de la partida
 
 > [!IMPRIMIR]
-- [ ] Nombre del jugador ganador
+- [x] Nombre del jugador ganador
 - [ ] Coordenadas de las naves de cada jugador
 ejemplo:
 Jugador 1   Nave de 4 A1 horizontal

@@ -2,7 +2,10 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Calculo {
+
     public void limpiarPantalla() throws IOException, InterruptedException {
+        Thread.sleep(1500); // Esperar 1.5 segundos antes de limpiar pantalla
+
         new ProcessBuilder("cmd", "/c", "cls")
                 .inheritIO()
                 .start()
@@ -171,6 +174,22 @@ public class Calculo {
         return esValido;
     }
 
+    public boolean verificarEntradaCoordenadas(String coordenada) {
+        char x, y;
+        boolean esValido = false;
+
+        if (coordenada.length() >= 3) {
+            x = Character.toUpperCase(coordenada.charAt(0));
+            y = coordenada.charAt(2);
+
+            if ((x >= 'A' && x <= 'I') && (y >= '1' && y <= '9')) {
+                esValido = true;
+            }
+        }
+
+        return esValido;
+    }
+
     public boolean verificarDisponibilidad(char[][] tabFlota, int x, int y, int tamaño, String orientacion) {
         boolean espacioDisponible = true;
         int limX, limY;
@@ -196,5 +215,30 @@ public class Calculo {
         return espacioDisponible;
     }
 
-}
+    public boolean verificarDisponibilidad(char[][] tablero, int x, int y) {
+        boolean espacioDisponible = true;
 
+        if (tablero[x][y] == 'X' || tablero[x][y] == '0') {
+            espacioDisponible = false;
+            System.out.println("Ya ataco en esta posición!");
+            return espacioDisponible;
+        }
+
+        return espacioDisponible;
+    }
+
+    public boolean hayGanador(char[][] tablero) {
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero.length; j++) {
+
+                if (tablero[i][j] != 'X' && tablero[i][j] != '-') {
+                    return false;
+                }
+
+            }
+        }
+
+        return true;
+    }
+
+}
